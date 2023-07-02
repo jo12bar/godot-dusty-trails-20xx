@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dajqahr8c4qc5"
+path="res://.godot/imported/Slinger Swagger (loop).ogg-cef1bad7ec222f83bfc2c6b8584c84db.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/FX/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/OGG/Slinger Swagger (loop).ogg"
+dest_files=["res://.godot/imported/Slinger Swagger (loop).ogg-cef1bad7ec222f83bfc2c6b8584c84db.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

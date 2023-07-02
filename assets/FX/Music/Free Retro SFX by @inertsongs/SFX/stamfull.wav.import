@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1ttjurnrbw4d"
+path="res://.godot/imported/stamfull.wav-37db5d2032697ab130ece9ee63679ecb.sample"
+
+[deps]
+
+source_file="res://assets/FX/Music/Free Retro SFX by @inertsongs/SFX/stamfull.wav"
+dest_files=["res://.godot/imported/stamfull.wav-37db5d2032697ab130ece9ee63679ecb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
