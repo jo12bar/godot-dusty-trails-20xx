@@ -50,8 +50,8 @@ func _input(event: InputEvent) -> void:
 		
 		# Play attacking/shooting animation
 		is_attacking = true
-		var animation = "attack_" + animation_direction(cur_direction)
-		$AnimatedSprite2D.play(animation)
+		var attack_animation = "attack_" + animation_direction(cur_direction)
+		$AnimatedSprite2D.play(attack_animation)
 		
 
 
