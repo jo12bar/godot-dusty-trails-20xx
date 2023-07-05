@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d2j6cf5ctielj" path="res://assets/Player/Player Back Sheet.png" id="6_x6743"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0bpo"]
+radius = 8.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svhfw"]
 atlas = ExtResource("2_bpyps")
@@ -906,6 +908,7 @@ animations = [{
 script = ExtResource("1_svln8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_s0bpo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -913,5 +916,7 @@ sprite_frames = SubResource("SpriteFrames_h5di0")
 animation = &"attack_ne"
 frame = 5
 frame_progress = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
