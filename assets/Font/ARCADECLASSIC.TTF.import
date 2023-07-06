@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/ARCADECLASSIC.TTF-5450bba5040fab720ed43f2df91
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
