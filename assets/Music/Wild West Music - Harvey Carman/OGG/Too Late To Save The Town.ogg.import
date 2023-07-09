@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://k368wi4tlpcw"
-path="res://.godot/imported/Too Late To Save The Town.ogg-ddfc1e1762b3f0ee04409f9cf25f69b5.oggvorbisstr"
+path="res://.godot/imported/Too Late To Save The Town.ogg-99f4c09129afa788dd02064fbb65be1e.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/Music/Wild West Music - Harvey Carman/OGG/Too Late To Save The Town.ogg"
-dest_files=["res://.godot/imported/Too Late To Save The Town.ogg-ddfc1e1762b3f0ee04409f9cf25f69b5.oggvorbisstr"]
+source_file="res://Assets/Music/Wild West Music - Harvey Carman/OGG/Too Late To Save The Town.ogg"
+dest_files=["res://.godot/imported/Too Late To Save The Town.ogg-99f4c09129afa788dd02064fbb65be1e.oggvorbisstr"]
 
 [params]
 

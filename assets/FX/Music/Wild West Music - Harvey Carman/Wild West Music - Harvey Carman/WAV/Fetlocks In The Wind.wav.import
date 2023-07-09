@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dlvsaqignnol1"
-path="res://.godot/imported/Fetlocks In The Wind.wav-3dc2bd874379eae6e194401daa7b4403.sample"
+path="res://.godot/imported/Fetlocks In The Wind.wav-298b5b188b57ad863b7759894acc2a53.sample"
 
 [deps]
 
-source_file="res://assets/FX/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/WAV/Fetlocks In The Wind.wav"
-dest_files=["res://.godot/imported/Fetlocks In The Wind.wav-3dc2bd874379eae6e194401daa7b4403.sample"]
+source_file="res://Assets/FX/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/WAV/Fetlocks In The Wind.wav"
+dest_files=["res://.godot/imported/Fetlocks In The Wind.wav-298b5b188b57ad863b7759894acc2a53.sample"]
 
 [params]
 

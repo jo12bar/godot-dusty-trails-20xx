@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://satdygjdxyeu"
-path="res://.godot/imported/Whiskey Barn Dance (loop).wav-1db709bb8632dc018f0f354058bc0a5b.sample"
+path="res://.godot/imported/Whiskey Barn Dance (loop).wav-5b644dfff692b5ce2159697e938aa50a.sample"
 
 [deps]
 
-source_file="res://assets/FX/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/WAV/Whiskey Barn Dance (loop).wav"
-dest_files=["res://.godot/imported/Whiskey Barn Dance (loop).wav-1db709bb8632dc018f0f354058bc0a5b.sample"]
+source_file="res://Assets/FX/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/WAV/Whiskey Barn Dance (loop).wav"
+dest_files=["res://.godot/imported/Whiskey Barn Dance (loop).wav-5b644dfff692b5ce2159697e938aa50a.sample"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://diqggn1na05in"
-path="res://.godot/imported/boots_01e.png-87978538ff93266f1d7e4249904bc908.ctex"
+path="res://.godot/imported/boots_01e.png-cacf61ac9737fa800302f9f56f4c0e52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Icons/boots_01e.png"
-dest_files=["res://.godot/imported/boots_01e.png-87978538ff93266f1d7e4249904bc908.ctex"]
+source_file="res://Assets/Icons/boots_01e.png"
+dest_files=["res://.godot/imported/boots_01e.png-cacf61ac9737fa800302f9f56f4c0e52.ctex"]
 
 [params]
 

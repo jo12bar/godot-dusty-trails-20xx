@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://djk84jvwq26xn"
-path="res://.godot/imported/stamfull.wav-a92423e3ab96c1708133cbaa92e88dfc.sample"
+path="res://.godot/imported/stamfull.wav-e55e0ff79eba489302eec665d5aafc49.sample"
 
 [deps]
 
-source_file="res://assets/Music/Free Retro SFX by @inertsongs/SFX/stamfull.wav"
-dest_files=["res://.godot/imported/stamfull.wav-a92423e3ab96c1708133cbaa92e88dfc.sample"]
+source_file="res://Assets/Music/Free Retro SFX by @inertsongs/SFX/stamfull.wav"
+dest_files=["res://.godot/imported/stamfull.wav-e55e0ff79eba489302eec665d5aafc49.sample"]
 
 [params]
 
