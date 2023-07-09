@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ciylqv5h5idc8"
-path="res://.godot/imported/WildWest_1950x1300.png-7a9e56362dc3500c0fec894449eb69af.ctex"
+path="res://.godot/imported/WildWest_1950x1300.png-52a6846f65acbec6a7184745f15a7014.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/WildWest_1950x1300.png"
-dest_files=["res://.godot/imported/WildWest_1950x1300.png-7a9e56362dc3500c0fec894449eb69af.ctex"]
+source_file="res://assets/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/WildWest_1950x1300.png"
+dest_files=["res://.godot/imported/WildWest_1950x1300.png-52a6846f65acbec6a7184745f15a7014.ctex"]
 
 [params]
 

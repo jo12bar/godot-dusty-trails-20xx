@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bxm78rbgjo3wj"
-path="res://.godot/imported/Confronting The Man In Black.wav-2f9fe7c56419e5d3efffcec7d9ea3713.sample"
+path="res://.godot/imported/Confronting The Man In Black.wav-30e2058ef5e7a5bdf56495b66a84bdc7.sample"
 
 [deps]
 
-source_file="res://Assets/FX/Music/Wild West Music - Harvey Carman/WAV/Confronting The Man In Black.wav"
-dest_files=["res://.godot/imported/Confronting The Man In Black.wav-2f9fe7c56419e5d3efffcec7d9ea3713.sample"]
+source_file="res://assets/FX/Music/Wild West Music - Harvey Carman/WAV/Confronting The Man In Black.wav"
+dest_files=["res://.godot/imported/Confronting The Man In Black.wav-30e2058ef5e7a5bdf56495b66a84bdc7.sample"]
 
 [params]
 

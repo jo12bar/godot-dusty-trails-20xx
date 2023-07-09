@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://efe0wyyalqtm"
-path="res://.godot/imported/Coyote Side Sheet.png-a68e36510cd6ce955f88925d9cc5eb93.ctex"
+path="res://.godot/imported/Coyote Side Sheet.png-843c643a894a07c1181c09c75ee2c275.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mobs/Coyote/Coyote Side Sheet.png"
-dest_files=["res://.godot/imported/Coyote Side Sheet.png-a68e36510cd6ce955f88925d9cc5eb93.ctex"]
+source_file="res://assets/Mobs/Coyote/Coyote Side Sheet.png"
+dest_files=["res://.godot/imported/Coyote Side Sheet.png-843c643a894a07c1181c09c75ee2c275.ctex"]
 
 [params]
 

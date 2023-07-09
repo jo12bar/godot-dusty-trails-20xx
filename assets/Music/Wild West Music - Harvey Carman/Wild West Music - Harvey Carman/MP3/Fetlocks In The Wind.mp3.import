@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bkk52rjhpmbt6"
-path="res://.godot/imported/Fetlocks In The Wind.mp3-2d1ed4d845c1e2dccc37600d4b0d479a.mp3str"
+path="res://.godot/imported/Fetlocks In The Wind.mp3-9f7365bc5af76e981a1bae839d2431dd.mp3str"
 
 [deps]
 
-source_file="res://Assets/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/MP3/Fetlocks In The Wind.mp3"
-dest_files=["res://.godot/imported/Fetlocks In The Wind.mp3-2d1ed4d845c1e2dccc37600d4b0d479a.mp3str"]
+source_file="res://assets/Music/Wild West Music - Harvey Carman/Wild West Music - Harvey Carman/MP3/Fetlocks In The Wind.mp3"
+dest_files=["res://.godot/imported/Fetlocks In The Wind.mp3-9f7365bc5af76e981a1bae839d2431dd.mp3str"]
 
 [params]
 

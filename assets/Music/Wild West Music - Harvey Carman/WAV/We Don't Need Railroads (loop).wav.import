@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://byaalf68kk86e"
-path="res://.godot/imported/We Don't Need Railroads (loop).wav-cb5ea03c678215bc015a3c251f3fb7e6.sample"
+path="res://.godot/imported/We Don't Need Railroads (loop).wav-b690a5cfecd9c3640a795a19bb386870.sample"
 
 [deps]
 
-source_file="res://Assets/Music/Wild West Music - Harvey Carman/WAV/We Don't Need Railroads (loop).wav"
-dest_files=["res://.godot/imported/We Don't Need Railroads (loop).wav-cb5ea03c678215bc015a3c251f3fb7e6.sample"]
+source_file="res://assets/Music/Wild West Music - Harvey Carman/WAV/We Don't Need Railroads (loop).wav"
+dest_files=["res://.godot/imported/We Don't Need Railroads (loop).wav-b690a5cfecd9c3640a795a19bb386870.sample"]
 
 [params]
 

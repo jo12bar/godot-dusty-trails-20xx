@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dnxqacwayjuwh"
-path="res://.godot/imported/protec.wav-2a194388d41ee954a199a4cf7c95fb5c.sample"
+path="res://.godot/imported/protec.wav-caa8558a8ba2e7728a620b3ac237445f.sample"
 
 [deps]
 
-source_file="res://Assets/Music/Free Retro SFX by @inertsongs/SFX/protec.wav"
-dest_files=["res://.godot/imported/protec.wav-2a194388d41ee954a199a4cf7c95fb5c.sample"]
+source_file="res://assets/Music/Free Retro SFX by @inertsongs/SFX/protec.wav"
+dest_files=["res://.godot/imported/protec.wav-caa8558a8ba2e7728a620b3ac237445f.sample"]
 
 [params]
 

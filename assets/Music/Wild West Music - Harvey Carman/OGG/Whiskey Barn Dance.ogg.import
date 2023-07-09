@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://c8urn5yx12yya"
-path="res://.godot/imported/Whiskey Barn Dance.ogg-68cd4116660f04fdb75215ca372f4fdb.oggvorbisstr"
+path="res://.godot/imported/Whiskey Barn Dance.ogg-4fc5fae6a67adfe635bc34351b3f897b.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/Music/Wild West Music - Harvey Carman/OGG/Whiskey Barn Dance.ogg"
-dest_files=["res://.godot/imported/Whiskey Barn Dance.ogg-68cd4116660f04fdb75215ca372f4fdb.oggvorbisstr"]
+source_file="res://assets/Music/Wild West Music - Harvey Carman/OGG/Whiskey Barn Dance.ogg"
+dest_files=["res://.godot/imported/Whiskey Barn Dance.ogg-4fc5fae6a67adfe635bc34351b3f897b.oggvorbisstr"]
 
 [params]
 

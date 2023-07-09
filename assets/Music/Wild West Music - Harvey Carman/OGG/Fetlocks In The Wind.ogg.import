@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bwqcbegh8g85d"
-path="res://.godot/imported/Fetlocks In The Wind.ogg-8f39c85fb71c53a71aa5c3b616343b72.oggvorbisstr"
+path="res://.godot/imported/Fetlocks In The Wind.ogg-ff68345e98f1251a00a8e01a872080e0.oggvorbisstr"
 
 [deps]
 
-source_file="res://Assets/Music/Wild West Music - Harvey Carman/OGG/Fetlocks In The Wind.ogg"
-dest_files=["res://.godot/imported/Fetlocks In The Wind.ogg-8f39c85fb71c53a71aa5c3b616343b72.oggvorbisstr"]
+source_file="res://assets/Music/Wild West Music - Harvey Carman/OGG/Fetlocks In The Wind.ogg"
+dest_files=["res://.godot/imported/Fetlocks In The Wind.ogg-ff68345e98f1251a00a8e01a872080e0.oggvorbisstr"]
 
 [params]
 

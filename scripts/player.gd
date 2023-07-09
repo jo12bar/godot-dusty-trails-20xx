@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 ## The main script hosting logic behind the Player character.
 
@@ -20,6 +21,34 @@ signal health_updated(health: float, max_health: float)
 ## @param stamina:     The player's current stamina.
 ## @param max_stamina: The player's current max stamina.
 signal stamina_updated(stamina: float, max_stamina: float)
+
+## Fired whenever the player's count of ammo pickups changes.
+##
+## Will be fired right when the game starts in _ready() to give the initial
+## ammo pickup count.
+##
+## Parameters (in order):
+## @param ammo_pickups: How many ammo pickups the player now has.
+signal ammo_pickups_updated(ammo_pickups: int)
+
+## Fired whenever the player's count of health pickups changes.
+##
+## Will be fired right when the game starts in _ready() to give the initial
+## health pickup count.
+##
+## Parameters (in order):
+## @param health_pickups: How many ammo pickups the player now has.
+signal health_pickups_updated(health_pickups: int)
+
+## Fired whenever the player's count of stamina pickups changes.
+##
+## Will be fired right when the game starts in _ready() to give the initial
+## stamina pickup count.
+##
+## Parameters (in order):
+## @param stamina_pickups: How many ammo pickups the player now has.
+signal stamina_pickups_updated(stamina_pickups: int)
+
 
 @export_category("Movement Stats")
 ## Player movement speed.
@@ -45,10 +74,19 @@ var is_attacking = false ## true if the player is currently attacking something
 @export var regen_stamina = 5
 
 
+# Pickup counters
+var ammo_pickups: int = 0
+var health_pickups: int = 0
+var stamina_pickups: int = 0
+
+
 func _ready() -> void:
-	# Send out initial health and stamina update signals
+	# Send out initial update signals
 	health_updated.emit(health, max_health)
 	stamina_updated.emit(stamina, max_stamina)
+	ammo_pickups_updated.emit(ammo_pickups)
+	health_pickups_updated.emit(health_pickups)
+	stamina_pickups_updated.emit(stamina_pickups)
 
 
 func _process(delta: float) -> void:
@@ -102,12 +140,31 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	# attacking
 	if event.is_action_pressed("ui_attack"):
+		if ammo_pickups > 0:
+			ammo_pickups = ammo_pickups - 1
+			ammo_pickups_updated.emit(ammo_pickups)
+			# Play attacking/shooting animation
+			is_attacking = true
+			var attack_animation = "attack_" + animation_direction(cur_direction)
+			$AnimatedSprite2D.play(attack_animation)
 
-		# Play attacking/shooting animation
-		is_attacking = true
-		var attack_animation = "attack_" + animation_direction(cur_direction)
-		$AnimatedSprite2D.play(attack_animation)
+	# using health pickups
+	if event.is_action_pressed("ui_consume_health_pickup"):
+		if health > 0 && health_pickups > 0:
+			health_pickups = health_pickups - 1
+			health = min(health + max_health / 2, max_health)
+			health_updated.emit(health, max_health)
+			health_pickups_updated.emit(health_pickups)
+
+	# using stamina consumables
+	if event.is_action_pressed("ui_consume_stamina_pickup"):
+		if stamina > 0 && stamina_pickups > 0:
+			stamina_pickups = stamina_pickups - 1
+			stamina = min(stamina + max_stamina / 2, max_stamina)
+			stamina_updated.emit(stamina, max_stamina)
+			stamina_pickups_updated.emit(stamina_pickups)
 
 
 
@@ -125,6 +182,7 @@ func player_animations(movement_direction: Vector2) -> void:
 		# play the idle animation if not moving
 		animation = "idle_" + animation_direction(cur_direction)
 		$AnimatedSprite2D.play(animation)
+
 
 ## Gets the direction of animation depending on the player's current direction.
 ##
@@ -169,3 +227,20 @@ func animation_direction(direction: Vector2) -> String:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_attacking = false
+
+
+## Add a pickup to the player's inventory.
+func add_pickup(pickup: Global.Pickups) -> void:
+	match pickup:
+		Global.Pickups.AMMO:
+			ammo_pickups = ammo_pickups + 3
+			ammo_pickups_updated.emit(ammo_pickups)
+			print("ammo count: " + str(ammo_pickups))
+		Global.Pickups.HEALTH:
+			health_pickups = health_pickups + 1
+			health_pickups_updated.emit(health_pickups)
+			print("health pickups count: " + str(health_pickups))
+		Global.Pickups.STAMINA:
+			stamina_pickups = stamina_pickups + 1
+			stamina_pickups_updated.emit(stamina_pickups)
+			print("stamina pickups count: " + str(stamina_pickups))
