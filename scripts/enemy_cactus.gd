@@ -46,6 +46,13 @@ func _physics_process(delta: float) -> void:
 		enemy_animations(cur_direction)
 
 
+## Spawn the enemy, playing its spawning animation and pausing it for a bit.
+func spawn() -> void:
+	$AnimatedSprite2D.animation = "spawn"
+	$AnimatedSprite2D.play("spawn")
+	is_attacking = true # creates animation delay
+
+
 ## Sync new_direction with the actual current movement direction (cur_direction).
 ## Called whenever the enemy moves or rotates.
 func sync_new_direction() -> void:
@@ -136,3 +143,11 @@ func animation_direction(direction: Vector2) -> String:
 		return "se"
 
 	return ""
+
+
+## Resets our attacking state back to false.
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "spawn":
+		$Timer.start()
+		timer = 0
+	is_attacking = false

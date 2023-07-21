@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c3f5sy71ysp1"]
+[gd_scene load_steps=45 format=3 uid="uid://c3f5sy71ysp1"]
 
 [ext_resource type="PackedScene" uid="uid://lpqlpwh6t3y5" path="res://scenes/player.tscn" id="1_2p5y1"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_cqy8q"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c165g8lnh74xn" path="res://assets/Icons/potion_02b.png" id="11_jwf6y"]
 [ext_resource type="PackedScene" uid="uid://blnw07032n4gv" path="res://scenes/pickup.tscn" id="12_6h52k"]
 [ext_resource type="Script" path="res://scripts/stamina_up_amount.gd" id="13_55mmm"]
+[ext_resource type="PackedScene" uid="uid://ukqvthiio4jt" path="res://scenes/enemy_spawner.tscn" id="16_8yc7q"]
 [ext_resource type="PackedScene" uid="uid://pyuu2ggnxys1" path="res://scenes/enemy_cactus.tscn" id="16_rf6ch"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_h3jmw"]
@@ -10139,5 +10140,6 @@ position = Vector2(182, 127)
 position = Vector2(121, 115)
 item = 1
 
-[node name="enemy_cactus" parent="." instance=ExtResource("16_rf6ch")]
-position = Vector2(-208, 46)
+[node name="enemy_spawner" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("16_8yc7q")]
+tilemap = NodePath("../Map")
+enemy_scene = ExtResource("16_rf6ch")

@@ -1,6 +1,6 @@
+## The main script hosting logic behind the Player character.
 class_name Player
 extends CharacterBody2D
-## The main script hosting logic behind the Player character.
 
 ## Fired whenever a change in the player's health level occurs.
 ##
