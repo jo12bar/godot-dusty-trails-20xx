@@ -73,6 +73,12 @@ var is_attacking = false ## true if the player is currently attacking something
 @export var max_stamina = 100
 @export var regen_stamina = 5
 
+@export var bullet_damage = 30         ## Damage that player bullets inflict
+@export var bullet_reload_time = 1000  ## Milliseconds to reload after firing
+@export var rounds_per_second = 0.5    ## How many rounds get fired per-second
+@export var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+var bullet_fired_time = 0
+
 
 # Pickup counters
 var ammo_pickups: int = 0
@@ -142,13 +148,21 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	# attacking
 	if event.is_action_pressed("ui_attack"):
-		if ammo_pickups > 0:
+		var now = Time.get_ticks_msec()
+
+		# Check if player can shoot and if reload time has passed and if we have ammo
+		if now >= bullet_fired_time and ammo_pickups > 0:
+			# Subtract ammo
 			ammo_pickups = ammo_pickups - 1
 			ammo_pickups_updated.emit(ammo_pickups)
+
 			# Play attacking/shooting animation
 			is_attacking = true
 			var attack_animation = "attack_" + animation_direction(cur_direction)
 			$AnimatedSprite2D.play(attack_animation)
+
+			# Update bullet fired time to the next time the bullet may be fired at
+			bullet_fired_time = now + bullet_reload_time
 
 	# using health pickups
 	if event.is_action_pressed("ui_consume_health_pickup"):
@@ -227,6 +241,15 @@ func animation_direction(direction: Vector2) -> String:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_attacking = false
+
+	# Instantiate a new bullet in the direction the Player is facing
+	if $AnimatedSprite2D.animation.begins_with("attack_"):
+		var bullet = bullet_scene.instantiate()
+		bullet.damage = bullet_damage
+		bullet.direction = cur_direction.normalized()
+		# Place 4 pixels in front of player to simulate bullet coming from player's gun
+		bullet.position = position + cur_direction.normalized() * 4
+		get_tree().root.get_node("main").add_child(bullet)
 
 
 ## Add a pickup to the player's inventory.
