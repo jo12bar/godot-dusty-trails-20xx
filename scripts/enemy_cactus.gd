@@ -1,6 +1,17 @@
 ## A cactus enemy.
 class_name EnemyCactus
-extends CharacterBody2D
+extends Enemy
+
+# Health and stamina stats
+@export_category("Combat Stats")
+@export var health: float = 100
+@export var max_health: float = 100
+@export var health_regen: float = 1
+
+@export var bullet_damage: float = 30       ## Damage that player bullets inflict
+@export var bullet_reload_time: int = 1000  ## Milliseconds to reload after firing
+@export var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+var bullet_fired_time = 0
 
 ## Enemy movement speed.
 @export var speed: float = 50.0
@@ -24,6 +35,15 @@ var player: Player
 func _ready() -> void:
 	player = get_tree().root.get_node("main/player")
 	rng.randomize()
+
+	# Reset modulate death animation so the enemy doesn't stay red
+	var as2d := $AnimatedSprite2D as AnimatedSprite2D
+	as2d.modulate = Color(1, 1, 1, 1)
+
+
+func _process(delta: float) -> void:
+	# Regen health
+	health = min(health + health_regen * delta, max_health)
 
 
 ## Process the enemy's movement
@@ -150,4 +170,26 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "spawn":
 		$Timer.start()
 		timer = 0
+
+	# Once the death animation has been played, remove the enemy from the scene
+	if $AnimatedSprite2D.animation == "death":
+		get_tree().queue_delete(self)
+
 	is_attacking = false
+
+
+## Inflict damage on the enemy, decreasing its HP and possibly killing it.
+func inflict_damage(damage: float) -> void:
+	health -= damage
+	if health > 0:
+		# Play damage animation
+		$AnimationPlayer.play("damage")
+	else:
+		# kill enemy
+		$AnimatedSprite2D.play("death")
+		$Timer.stop()
+		cur_direction = Vector2.ZERO
+		set_process(false) # stop health regen
+		is_attacking = true # trigger animation finished signal
+		# emit signal to let e.g. the spawners know
+		enemy_death.emit()

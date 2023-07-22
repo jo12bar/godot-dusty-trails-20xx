@@ -9903,6 +9903,7 @@ layer_5/tile_data = PackedInt32Array(262157, 2162688, 30, 327693, 2162688, 31, 3
 
 [node name="player" parent="." instance=ExtResource("1_2p5y1")]
 position = Vector2(160, 90)
+ammo_pickups = 30
 
 [node name="ui" type="CanvasLayer" parent="."]
 

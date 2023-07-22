@@ -75,15 +75,15 @@ var is_attacking = false ## true if the player is currently attacking something
 
 @export var bullet_damage = 30         ## Damage that player bullets inflict
 @export var bullet_reload_time = 1000  ## Milliseconds to reload after firing
-@export var rounds_per_second = 0.5    ## How many rounds get fired per-second
 @export var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
 var bullet_fired_time = 0
 
 
 # Pickup counters
-var ammo_pickups: int = 0
-var health_pickups: int = 0
-var stamina_pickups: int = 0
+@export_category("Pickup counters")
+@export var ammo_pickups: int = 0
+@export var health_pickups: int = 0
+@export var stamina_pickups: int = 0
 
 
 func _ready() -> void:

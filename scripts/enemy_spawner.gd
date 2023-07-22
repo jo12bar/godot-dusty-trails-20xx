@@ -68,8 +68,10 @@ func is_valid_spawn_position(pos: Vector2) -> bool:
 
 ## Spawn a single enemy
 func spawn_enemy() -> void:
-	var enemy = enemy_scene.instantiate()
+	var enemy := enemy_scene.instantiate() as Enemy
 	add_child(enemy)
+
+	enemy.enemy_death.connect(_on_enemy_death)
 
 	# Only spawn enemies on valid locations
 	var valid_location = false
@@ -86,3 +88,8 @@ func _on_timer_timeout() -> void:
 	if enemy_count < max_enemies:
 		spawn_enemy()
 		enemy_count += 1
+
+
+func _on_enemy_death() -> void:
+	# If one of this spawner's enemies dies, keep track of that
+	enemy_count -= 1

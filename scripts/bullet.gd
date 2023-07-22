@@ -33,9 +33,8 @@ func _on_body_entered(body: Node2D) -> void:
 			return
 
 	# If bullets hit an enemy, damage them
-	if body.name.find("enemy") >= 0:
-		# TODO: damage enemy
-		pass
+	if body is Enemy:
+		body.inflict_damage(damage)
 
 	direction = Vector2.ZERO
 	$AnimatedSprite2D.play("impact")
