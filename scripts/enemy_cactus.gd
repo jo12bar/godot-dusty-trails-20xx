@@ -13,7 +13,7 @@ extends Enemy
 
 @export var bullet_damage: float = 30       ## Damage that player bullets inflict
 @export var bullet_reload_time: int = 1000  ## Milliseconds to reload after firing
-@export var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
+@export var bullet_scene: PackedScene = preload("res://scenes/enemy_bullet.tscn")
 var bullet_fired_time = 0
 
 ## Things the enemy drops upon death.
@@ -26,7 +26,7 @@ var new_direction: Vector2 = Vector2(0, 1)
 var animation: String = "idle_down"
 var is_attacking = false
 
-var rng = RandomNumberGenerator.new()
+var rng := RandomNumberGenerator.new()
 
 ## Timer count-down to redirect the enemy if collision events occur & the timer countdown reaches 0
 var timer: int = 0
@@ -48,6 +48,15 @@ func _process(delta: float) -> void:
 	# Regen health
 	health = min(health + health_regen * delta, max_health)
 
+	# Get RayCast2D's collider
+	var raycast_target = $RayCast2D.get_collider()
+	if raycast_target:
+		# If we're colliding with the player and the player isn't dead...
+		if raycast_target is Player and player.health > 0:
+			# Shoot the player
+			is_attacking = true
+			var animation = "attack_" + animation_direction(new_direction)
+			$AnimatedSprite2D.play(animation)
 
 ## Process the enemy's movement
 func _physics_process(delta: float) -> void:
@@ -67,6 +76,14 @@ func _physics_process(delta: float) -> void:
 	# Play animations if not currently attacking
 	if !is_attacking:
 		enemy_animations(cur_direction)
+
+	# Reset our attacking state to false after spawning in
+	if $AnimatedSprite2D.animation == "spawn":
+		$Timer.start()
+
+	# Turn RayCast2D towards our movement direction
+	if cur_direction != Vector2.ZERO:
+		$RayCast2D.target_position = cur_direction.normalized() * 50
 
 
 ## Spawn the enemy, playing its spawning animation and pausing it for a bit.
@@ -179,6 +196,16 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		get_tree().queue_delete(self)
 
 	is_attacking = false
+
+	# Spawn a bullet
+	if $AnimatedSprite2D.animation.begins_with("attack_"):
+		var bullet = bullet_scene.instantiate()
+		bullet.damage = bullet_damage
+		bullet.direction = new_direction.normalized()
+		# Place 8 pixels in front of enemy to simulate the bullet coming from
+		# the gun barrel
+		bullet.position = position + new_direction.normalized() * 8
+		get_tree().root.get_node("main").add_child(bullet)
 
 
 ## Inflict damage on the enemy, decreasing its HP and possibly killing it.

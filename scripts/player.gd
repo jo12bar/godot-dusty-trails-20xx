@@ -94,6 +94,10 @@ func _ready() -> void:
 	health_pickups_updated.emit(health_pickups)
 	stamina_pickups_updated.emit(stamina_pickups)
 
+	# Reset modulate death animation so the player doesn't stay red
+	var as2d := $AnimatedSprite2D as AnimatedSprite2D
+	as2d.modulate = Color(1, 1, 1, 1)
+
 
 func _process(delta: float) -> void:
 	var updated_health = min(health + regen_health * delta, max_health)
@@ -267,3 +271,21 @@ func add_pickup(pickup: Global.Pickups) -> void:
 			stamina_pickups = stamina_pickups + 1
 			stamina_pickups_updated.emit(stamina_pickups)
 			print("stamina pickups count: " + str(stamina_pickups))
+
+
+## Inflict damage on the player, decreasing their HP and possibly killing them.
+func inflict_damage(damage: float) -> void:
+	health -= damage
+	health_updated.emit(health, max_health)
+	if health > 0:
+		# Play damage animation
+		$AnimationPlayer.play("damage")
+	else:
+		# kill player
+		set_process(false)
+		# TODO: game over
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	# Reset modulate value
+	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1)
