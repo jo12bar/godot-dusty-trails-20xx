@@ -8,13 +8,16 @@ extends Enemy
 @export var max_health: float = 100
 @export var health_regen: float = 1
 
+## Enemy movement speed.
+@export var speed: float = 50.0
+
 @export var bullet_damage: float = 30       ## Damage that player bullets inflict
 @export var bullet_reload_time: int = 1000  ## Milliseconds to reload after firing
 @export var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
 var bullet_fired_time = 0
 
-## Enemy movement speed.
-@export var speed: float = 50.0
+## Things the enemy drops upon death.
+@export var pickups_scene: PackedScene = preload("res://scenes/pickup.tscn")
 
 ## Current direction the enemy is moving.
 var cur_direction: Vector2
@@ -193,3 +196,10 @@ func inflict_damage(damage: float) -> void:
 		is_attacking = true # trigger animation finished signal
 		# emit signal to let e.g. the spawners know
 		enemy_death.emit()
+
+		# 90% chance to drop loot
+		if rng.randf() < 0.9:
+			var pickup := pickups_scene.instantiate() as Pickup
+			pickup.item = Global.Pickups[Global.Pickups.keys()[rng.randi() % Global.Pickups.size()]]
+			get_tree().root.get_node("main").call_deferred("add_child", pickup)
+			pickup.position = self.position
